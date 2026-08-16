@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles/index.css" rel="stylesheet" >
+    <title><%= title %></title>
+</head>
+<body>
+    <div id="board-container">
+        <a href="/new">New Message</a>
+        <% messages.forEach((msg, i) => { %>
+            <div>
+                <h2><%= msg.user %></h2>
+                <p><%= msg.text %></p>
+                <p><%= msg.added %></p>
+                <a href=<%= i %>>OPEN</a>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>
