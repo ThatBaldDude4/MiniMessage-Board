@@ -9,12 +9,12 @@
 <body>
     <div id="board-container">
         <a href="/new">New Message</a>
-        <% messages.forEach((msg, i) => { %>
-            <div>
+        <% [...messages].reverse().forEach((msg, i) => { %>
+            <div class="message-container">
                 <h2><%= msg.user %></h2>
                 <p><%= msg.text %></p>
-                <p><%= msg.added %></p>
-                <a href=<%= i %>>OPEN</a>
+                <p class="secondary-text"><%= msg.added.toLocaleString() %></p>
+                <a href=<%= messages.length - 1 - i %>>OPEN</a>
             </div>
         <% }); %>
     </div>
