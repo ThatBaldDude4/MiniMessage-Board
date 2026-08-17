@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require("node:path");
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const indexRouter = require("./routes/indexRouter");
 
 
@@ -24,4 +24,4 @@ app.listen(PORT, (error) => {
     throw error;
   }
   console.log(`Server running on port http://localhost:${PORT}`); 
-}); 
+});
