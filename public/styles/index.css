@@ -26,7 +26,7 @@ body {
     flex-direction: column-reverse;
     align-items: left;
     max-height: 500px;
-    min-width: 300px;
+    width: 300px;
     overflow-y: auto;
     padding: 10px;
     background-color: var(--secondary-background-color);
