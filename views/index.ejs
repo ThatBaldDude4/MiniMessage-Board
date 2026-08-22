@@ -11,10 +11,10 @@
         <a href="/new">New Message</a>
         <% [...messages].reverse().forEach((msg, i) => { %>
             <div class="message-container">
-                <h2><%= msg.user %></h2>
-                <p><%= msg.text %></p>
-                <p class="secondary-text"><%= msg.added.toLocaleString() %></p>
-                <a href=<%= messages.length - 1 - i %>>OPEN</a>
+                <h2><%= msg.author %></h2>
+                <p><%= msg.message %></p>
+                <p class="secondary-text"><%= msg.create_at.toLocaleString() %></p>
+                <a href=<%= msg.id %>>OPEN</a>
             </div>
         <% }); %>
     </div>
