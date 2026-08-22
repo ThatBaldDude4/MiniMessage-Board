@@ -1,0 +1,12 @@
+@import "index.css";
+
+#message-form {
+    border: 2px solid var(--secondary-text-color);
+    background-color: var(--secondary-background-color);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 300px;
+};
