@@ -23,5 +23,6 @@ app.listen(PORT, "0.0.0.0", (error) => {
   if (error) {
     throw error;
   }
-  console.log(`Server running on port http://localhost:${PORT}`); 
+  console.log(`Server running on port http://localhost:${PORT}`);
+  console.log(process.env)
 }); 
