@@ -1,7 +1,9 @@
 const { getAllMessages, insertMessage, getMessage } = require("../db/queries");
 
 exports.usersListGet = async (req, res) => {
+    console.log("before")
     const messages = await getAllMessages();
+    console.log("after")
     res.render("index", {
         title: "Message List",
         messages: messages,
