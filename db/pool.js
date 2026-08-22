@@ -1,7 +1,7 @@
 const { Pool } = require("pg");
 
-const {HOST, USER, DATABASE, PASSWORD, PORT, connectStr} = process.env;
+const {HOST, USER, DATABASE, PASSWORD, PORT, MSG_URL} = process.env;
 
 module.exports = new Pool({
-  connectionString: connectStr,
+  connectionString: MSG_URL,
 });
