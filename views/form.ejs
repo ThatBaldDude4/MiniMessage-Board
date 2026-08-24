@@ -10,6 +10,14 @@
     <form method="POST" action="/new" id="message-form">
         <h1>New Message</h1>
 
+        <% if (locals.errors) {%>
+            <ul>
+                <% errors.forEach(function(error) { %>
+                    <li><%= error.msg %></li>
+                <% }); %>
+            </ul>
+        <% } %>
+
         <label>
             Name:
             <input type="text" name="authorName"/>

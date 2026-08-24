@@ -1,4 +1,14 @@
 const { getAllMessages, insertMessage, getMessage } = require("../db/queries");
+const { body, validationResult, matchedData } = require("express-validator");
+
+const lengthErr = "must be between 2 and 255 characters."
+
+const validateUser = [
+    body("messageText").trim()
+        .isLength({min: 2, max: 255}).withMessage(`Message ${lengthErr}`),
+    body("authorName").trim()
+        .isLength({min: 2, max: 255}).withMessage(`Author ${lengthErr}`),
+]
 
 exports.usersListGet = async (req, res) => {
     console.log("before")
@@ -21,11 +31,21 @@ exports.userGet = async (req, res) => {
     res.render("message", {message: message});
 };
 
-exports.insertNewMessage = (req, res) => {
-    const message = {
-        message: req.body.messageText,
-        author: req.body.authorName,
+exports.insertNewMessage = [
+    validateUser,
+    (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).render("form", {
+                errors: errors.array(),
+            })
+        }
+        const { messageText, authorName } = matchedData(req);
+        const message = {
+            message: messageText,
+            author: authorName,
+        }
+        insertMessage(message);
+        res.redirect("/");
     }
-    insertMessage(message);
-    res.redirect("/");
-}
+]
